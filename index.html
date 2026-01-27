@@ -134,6 +134,22 @@
                 transform: translateX(5px);
                 transition: all 0.3s ease;
             }
+            /* Add this to the <style> section */
+            .option-image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-top: 4px;
+            }
+
+            .question-image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 12px;
+                margin: 15px auto;
+                display: block;
+                border: 1px solid rgba(0, 245, 212, 0.2);
+            }
             
             /* Toast notification styles */
             .toast-notification {
@@ -331,10 +347,16 @@
                         </div>
                         <div class="mt-8">
                             <h4 class="text-primary font-bold text-xs uppercase tracking-widest mb-4">Controls</h4>
-                            <button id="next-question-btn" class="w-full py-3 bg-primary/10 text-primary font-bold rounded-xl border border-primary/30 hover:bg-primary/20 transition-colors mb-3">
-                                <span class="material-symbols-outlined align-middle mr-2 text-sm">skip_next</span>
-                                Next Question
-                            </button>
+                            <div class="flex gap-3 mb-3">
+                                <button id="prev-question-btn" class="flex-1 py-3 bg-primary/10 text-primary font-bold rounded-xl border border-primary/30 hover:bg-primary/20 transition-colors">
+                                    <span class="material-symbols-outlined align-middle mr-2 text-sm">skip_previous</span>
+                                    Previous
+                                </button>
+                                <button id="next-question-btn" class="flex-1 py-3 bg-primary/10 text-primary font-bold rounded-xl border border-primary/30 hover:bg-primary/20 transition-colors">
+                                    <span class="material-symbols-outlined align-middle mr-2 text-sm">skip_next</span>
+                                    Next
+                                </button>
+                            </div>
                             <button id="pause-timer-btn" class="w-full py-3 bg-primary/10 text-primary font-bold rounded-xl border border-primary/30 hover:bg-primary/20 transition-colors">
                                 <span class="material-symbols-outlined align-middle mr-2 text-sm">pause</span>
                                 Pause Timer
@@ -485,18 +507,18 @@
                     {
                         question: "The inductive effect of -CH₃ group operates in",
                         options: [
-                            "CH₃-CH₂-Cl",
-                            "CH₂=CH-Cl",
-                            "CH≡C-Cl",
+                            '<img src="images/2a.png" alt="Option A" style="max-width:100%; height:auto;">',
+                            '<img src="images/2b.png" alt="Option B" style="max-width:100%; height:auto;">',
+                            '<img src="images/2c.png" alt="Option C" style="max-width:100%; height:auto;">',
                             "All of these"
                         ]
                     },
                     {
                         question: "Which of the following sets of bases is present both in DNA and RNA?",
                         options: [
-                            "Adenine, Guanine, uracil",
-                            "Adenine, Guanine, cytosin",
-                            "Adenine, uracil, thymine",
+                            '<img src="images/22a.png" alt="Option A" style="max-width:100%; height:auto;">',
+                            '<img src="images/22b.png" alt="Option B" style="max-width:100%; height:auto;">',
+                            '<img src="images/22c.png" alt="Option C" style="max-width:100%; height:auto;">',
                             "Adenine, Guanine, thymine"
                         ]
                     },
@@ -579,7 +601,7 @@
                 icon: "science",
                 questions: [
                     {
-                        question: "Which one of the following substituents at para-positions is most effective in stabilizing the phenoxide ion?",
+                        question: "Which one of the following substituents at para-positions is most effective in stabilizing the phenoxide ion? <br><br><img src='images/31.png' alt='Question Image' style='max-width:80%; height:auto; margin-top:10px; margin-bottom:10px;'>",
                         options: [
                             "-OCH₃",
                             "-CH₂OH",
@@ -588,7 +610,7 @@
                         ]
                     },
                     {
-                        question: "How many hyperconjugatable H-atoms does CH₃CH=CH₂ molecule have?",
+                        question: "How many hyperconjugatable H-atoms does CH₃CH=CH₂ molecule have? <br><br><img src='images/32.png' alt='Question Image' style='max-width:80%; height:auto; margin-top:10px; margin-bottom:10px;'>",
                         options: [
                             "0",
                             "2",
@@ -869,10 +891,10 @@
                     {
                         question: "Which of the following compound will show geometrical isomerism?",
                         options: [
-                            "CH₃CH=CHCOOH",
-                            "CH₃CH₂CH=CH₂",
-                            "(CH₃)₂C=CH₂",
-                            "CH₃CH=CCl₂"
+                            '<img src="images/61a.png" alt="Option A" style="max-width:100%; height:auto;">',
+                            '<img src="images/61b.png" alt="Option B" style="max-width:100%; height:auto;">',
+                            '<img src="images/61c.png" alt="Option C" style="max-width:100%; height:auto;">',
+                            '<img src="images/61d.png" alt="Option D" style="max-width:100%; height:auto;">'
                         ]
                     },
                     {
@@ -963,7 +985,7 @@
                 icon: "water_ec",
                 questions: [
                     {
-                        question: "How many chiral atoms are present in glucose?",
+                        question: "How many chiral atoms are present in glucose? <br><br><img src='images/71.png' alt='Question Image' style='max-width:80%; height:auto; margin-top:10px; margin-bottom:10px;'>",
                         options: [
                             "2",
                             "4",
@@ -972,7 +994,7 @@
                         ]
                     },
                     {
-                        question: "Which reagent is used for the Clemmensen reduction of carbonyl compounds?",
+                        question: "Which reagent is used for the Clemmensen reduction of carbonyl compounds? <br><br><img src='images/72.png' alt='Question Image' style='max-width:80%; height:auto; margin-top:10px; margin-bottom:10px;'>",
                         options: [
                             "LiAlH₄",
                             "H₂/Ni",
@@ -1367,6 +1389,8 @@
         const closeModalBtn = document.getElementById('close-modal-btn');
         const pauseTimerBtn = document.getElementById('pause-timer-btn');
         const nextQuestionBtn = document.getElementById('next-question-btn');
+        // DOM elements (add this line with the other DOM element declarations)
+        const prevQuestionBtn = document.getElementById('prev-question-btn');
         const endRoundBtn = document.getElementById('end-round-btn');
         const masterResetBtn = document.getElementById('master-reset-btn');
         const footerCardStatus = document.getElementById('footer-card-status');
@@ -1391,6 +1415,7 @@
             closeModalBtn.addEventListener('click', () => closeModal());
             pauseTimerBtn.addEventListener('click', toggleTimer);
             nextQuestionBtn.addEventListener('click', nextQuestion);
+            prevQuestionBtn.addEventListener('click', prevQuestion); // Add this line
             endRoundBtn.addEventListener('click', endRound);
             masterResetBtn.addEventListener('click', masterReset);
 
@@ -1453,6 +1478,12 @@
             quizModal.classList.remove('hidden');
             quizModal.classList.add('flex');
             
+            // Reset scroll position of questions container
+            const questionsContainer = document.getElementById('questions-container');
+            if (questionsContainer) {
+                questionsContainer.scrollTop = 0;
+            }
+            
             // Update footer status
             footerCardStatus.textContent = `CARD ${cardNumber} ACTIVE`;
             
@@ -1499,9 +1530,9 @@
                     </div>
                     <div class="grid grid-cols-2 gap-4 ml-22 pl-[88px]">
                         ${['A', 'B', 'C', 'D'].map((letter, i) => `
-                            <button class="text-left p-6 rounded-xl border border-primary/20 bg-primary/5 hover:bg-primary/20 hover:border-primary/50 transition-all flex items-center gap-4 group">
-                                <span class="size-8 rounded-lg bg-obsidian flex items-center justify-center text-primary font-black border border-primary/20 group-hover:border-primary/60">${letter}</span>
-                                <span class="text-lg text-white/80 group-hover:text-white">${questionData.options[i] || `Option ${letter}`}</span>
+                            <button class="text-left p-6 rounded-xl border border-primary/20 bg-primary/5 hover:bg-primary/20 hover:border-primary/50 transition-all flex items-start gap-4 group">
+                                <span class="flex-shrink-0 size-8 rounded-lg bg-obsidian flex items-center justify-center text-primary font-black border border-primary/20 group-hover:border-primary/60">${letter}</span>
+                                <div class="text-lg text-white/80 group-hover:text-white flex-1">${questionData.options[i] || `Option ${letter}`}</div>
                             </button>
                         `).join('')}
                     </div>
@@ -1512,6 +1543,12 @@
             
             // Reset timer
             resetTimer();
+            
+            // Reset scroll position of questions container
+            const questionsContainer = document.getElementById('questions-container');
+            if (questionsContainer) {
+                questionsContainer.scrollTop = 0;
+            }
         }
 
         // Update completed cards UI
@@ -1658,6 +1695,39 @@
                 }
             }
         }
+        // Previous Question function
+        function prevQuestion() {
+            if (!state.activeCardId) return;
+            
+            if (state.currentQuestionIndex > 0) {
+                // Remove current class from current question
+                const currentQuestion = questionsList.querySelector(`[data-index="${state.currentQuestionIndex}"]`);
+                if (currentQuestion) {
+                    currentQuestion.classList.remove('question-current');
+                    const currentNumber = currentQuestion.querySelector('span');
+                    currentNumber.classList.remove('bg-primary', 'text-obsidian');
+                    currentNumber.classList.add('bg-primary/20', 'text-primary');
+                }
+                
+                // Move to previous question
+                state.currentQuestionIndex--;
+                
+                // Add current class to new question
+                const previousQuestion = questionsList.querySelector(`[data-index="${state.currentQuestionIndex}"]`);
+                if (previousQuestion) {
+                    previousQuestion.classList.add('question-current');
+                    const previousNumber = previousQuestion.querySelector('span');
+                    previousNumber.classList.remove('bg-primary/20', 'text-primary');
+                    previousNumber.classList.add('bg-primary', 'text-obsidian');
+                    
+                    // Scroll to previous question
+                    previousQuestion.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            }
+        }
 
         // End round button
         function endRound() {
@@ -1707,6 +1777,12 @@
             // Reset state
             state.activeCardId = null;
             state.currentQuestionIndex = 0;
+            
+            // Reset scroll position of questions container
+            const questionsContainer = document.getElementById('questions-container');
+            if (questionsContainer) {
+                questionsContainer.scrollTop = 0;
+            }
         }
 
         // Master reset
